@@ -1,2 +1,2 @@
-# Sistemas-de-Informa-o---UEMG
+#SistemasUEMG
 Códigos e Aulas - Curso Sistemas de Informação - UEMG Passos
