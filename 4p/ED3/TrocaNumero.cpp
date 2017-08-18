@@ -33,14 +33,19 @@ void troca(celula *lista, int num1, int num2){
 		cout << "Lista Vazia!" << endl;
 	}else{
 		celula *aux = lista;
-		while(aux!=NULL && aux->num != num1)
+		int count = 0;
+		while(aux!=NULL)
 		{
+			if(aux->num == num1){
+				aux->num = num2;
+				count++;
+			}
 			aux = aux->prox;
 		}
-		if(aux == NULL){
+		if(count == 0){
 			cout << "\nNumero não encontrado!\n";
 		}else{
-			aux->num = num2;
+			cout << "\nQuantidade de trocas: " << count << endl;
 		}
 	}
 }
@@ -48,14 +53,14 @@ void troca(celula *lista, int num1, int num2){
 int main()
 {
     celula *lista = NULL;
+    lista = InserirNoInicio(lista,5);
     lista = InserirNoInicio(lista,10);
     lista = InserirNoInicio(lista,20);
-    lista = InserirNoInicio(lista,30);
+    lista = InserirNoInicio(lista,5);
     lista = InserirNoInicio(lista,40);
-    lista = InserirNoInicio(lista,50);
     cout << "\nLista antes\n";
     ImprimirLista(lista);
-    troca(lista,50,5);
+    troca(lista,5,10);
     cout << "\nLista depois\n";
     ImprimirLista(lista);
     return 0;       
