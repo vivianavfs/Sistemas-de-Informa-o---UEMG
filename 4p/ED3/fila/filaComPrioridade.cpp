@@ -58,7 +58,13 @@ void inserir(fila &f, string n, int p)
 			nova->prox = f.inicio;
 			f.inicio = nova;
 		}
-		else if (ant!=NULL)
+		else if (aux == NULL)
+		{
+			f.fim->prox = nova;
+			nova->prox = NULL;
+			f.fim = nova;
+		}
+		else
 		{
 			nova->prox = aux;
 			ant->prox = nova;
