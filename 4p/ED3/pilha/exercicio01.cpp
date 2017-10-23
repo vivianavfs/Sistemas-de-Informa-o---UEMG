@@ -41,6 +41,14 @@ bool is_number(string str)
 	return num;
 }
 
+void push(pilha &p, int n)
+{
+	celula *nova = new celula;
+	nova->elem = n;
+	nova->prox = p.topo;
+	p.topo = nova;
+}
+
 void cadastra(pilha &p)
 {
 	string num;
@@ -48,10 +56,7 @@ void cadastra(pilha &p)
 	cin >> num;
 	while(is_number(num))
 	{
-		celula *nova = new celula;
-		nova->elem = atoi( num.c_str() );
-		nova->prox = p.topo;
-		p.topo = nova;
+		push(p, atoi(num.c_str()));
 		cin >> num;
 	}
 }
