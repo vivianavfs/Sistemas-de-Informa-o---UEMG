@@ -37,13 +37,14 @@ int main()
     int n;
     pilha p1;
     p1.topo = NULL;
-    while(true){
-    	cout << "\nDigite um numero: ";
+    cout << "\nEntre com os valores: ";
+    do{
+    	cout << "\n=> ";
     	cin >> n;
-    	if(n<=0)
-    		break;
-		push(p1,n);
-	}
+    	if(n>0)
+			push(p1,n);
+	}while(n>0);
+	
     print(p1);
     
     return 0;       
