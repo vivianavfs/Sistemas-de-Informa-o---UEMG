@@ -32,11 +32,33 @@ void print(pilha p){
 	}
 }
 
+void split(pilha &p1, pilha &par, pilha &impar){
+	if(p1.topo){
+		celula *aux = p1.topo;
+		while(aux)
+		{
+			if(aux->elem%2==0)
+			{
+				push(par,aux->elem);
+			}
+			else
+			{
+				push(impar,aux->elem);
+			}
+			aux = aux->prox;
+		}
+	}
+}
+
 int main()
 {
     int n;
-    pilha p1;
+    
+    pilha p1,par,impar;
     p1.topo = NULL;
+    par.topo = NULL;
+    impar.topo = NULL;
+    
     cout << "\nEntre com os valores: ";
     do{
     	cout << "\n=> ";
@@ -45,7 +67,16 @@ int main()
 			push(p1,n);
 	}while(n>0);
 	
+	cout << "\nPilha Original\n";
     print(p1);
+    
+    split(p1,par,impar);
+    
+    cout << "\nPilha par\n";
+    print(par);
+    
+    cout << "\nPilha impar\n";
+    print(impar);
     
     return 0;       
 }
