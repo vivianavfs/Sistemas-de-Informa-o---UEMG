@@ -32,13 +32,23 @@ celula *inserir(celula *raiz, int v)
 	
 }
 
-void imprimirPreOrdem(celula *raiz)
+void imprimirPreOrdem(celula *raiz, string lado)
 {
 	if(raiz != NULL)
 	{
-		cout << raiz->elem << " ";
-		imprimirPreOrdem(raiz->esq);
-		imprimirPreOrdem(raiz->dir);
+		cout << lado << ":" << raiz->elem << " ";
+		imprimirPreOrdem(raiz->esq, "E");
+		imprimirPreOrdem(raiz->dir, "D");
+	}
+}
+
+void imprimirPosOrdem(celula *raiz, string lado)
+{
+	if(raiz != NULL)
+	{
+		imprimirPreOrdem(raiz->esq, "E");
+		imprimirPreOrdem(raiz->dir, "D");
+		cout << lado << ":" << raiz->elem << " ";
 	}
 }
 
@@ -56,8 +66,11 @@ int main()
     raiz = inserir(raiz, 19);
     raiz = inserir(raiz, 1);
     
-    cout << "\nElementos da árvore: ";
-    imprimirPreOrdem(raiz);
+    cout << "\nElementos da árvore Pre Ordem: ";
+    imprimirPreOrdem(raiz,"R");
+    
+    cout << "\nElementos da árvore Pos Ordem: ";
+    imprimirPosOrdem(raiz,"R");
     
     cout << endl;
     
